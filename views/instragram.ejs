@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="icon" type="image/webp" href="/Instagram_icon.png.webp">
+
+    <style>
+        *{
+            color: whitesmoke;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            background-image: linear-gradient(to bottom right , rgba(27, 143, 27, 0.688) , rgb(175, 175, 25) ,pink);
+            width: 100vw;
+            /* overflow: hidden; */
+
+        }
+        header{
+            height: 3rem;
+            background-image: linear-gradient(to left top , rgb(54, 56, 55) , rgba(31, 130, 130, 0.794));
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 1.3rem;
+            /* border: 2px solid red; */
+            position: fixed;
+            /* width: 100vw; */
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        a{
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.5s;
+        }
+        a:hover{
+            transform: scale(1.15);
+        }
+        .img{
+            height: 25rem;
+            width: 25rem;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: -11px 6px 30px 1px rgba(161, 226, 70, 0.71);
+            border: 5px dashed rgb(216, 216, 208);
+        }
+
+
+        button{
+            height: 2rem;
+            width: 6rem;
+            color: blueviolet;
+            border: none;
+            border-radius: 1rem;
+            /* font-weight: bold; */
+            font-size: 1rem;
+        }
+
+        section{
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .videodiv{
+            width: 100vw;
+            /* border: 2px solid red; */
+            display: flex;
+            justify-content: center;
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <% names = ['cats' , 'dogs' , 'birds' , 'rabbits'] %>
+        <% for(n of names) {%>
+            <a href="http://<%=localIpAddress%>:8080/instragram/<%=n%>">
+                <%= n.toUpperCase() %>
+            </a> 
+        <% } %>
+    </header>
+    <h1 style="padding-top: 3.6rem;">
+        This account belongs to @<%= data.name %>
+    </h1>
+    <button>Follow</button>
+    <button>Message</button>
+
+    <p>
+        Followers: <%= data.followers %> &nbsp; &nbsp; &nbsp; &nbsp;
+        Following: <%= data.following %>
+    </p>
+    <hr>
+
+    <div class="videodiv">
+        <video style=" border: none; object-fit: cover; object-position: center; border-radius: 1rem;"  width="380" height="200"  controls   src="/vid1.mp4"  volume="50"   ></video>
+    </div>
+
+    <!-- <video src="/external-media/1.mp4" controls></video> -->
+
+    <hr>
+
+    <section style="margin-bottom: 2rem;">
+        
+        <h2>Posts: </h2>
+        <% for(post of data.posts) { %>
+
+            <img class="img" src="<%= post.image %>"  alt=""> 
+            <p>
+                <span> <i class="fa-solid fa-heart fa-beat"></i> </span>
+                Likes : <%= post.likes %> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                <i class="fa-solid fa-comment fa-beat"></i>
+                Comments : <%= post.comments  %>
+            </p>
+
+        <% } %>
+
+    </section> 
+    <hr>
+    
+    <%- include('includes/footer.ejs') %>
+    <!-- include is function and includes is the folder where footer.ejs file is -->
+
+</body>
+</html>

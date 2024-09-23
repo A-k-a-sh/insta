@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta</title>
+</head>
+<body>
+    <h1>
+        This page belongs to @<%= username %>
+    </h1>
+    <button>Follow</button>
+    <button>Message</button>
+    <% if(username == 'akash') { %>
+        <h2>
+            @<%= username %> has the followers:
+        </h2>
+
+        <ul>
+
+            <% for(follower of followers) { %>
+                <li> <%= follower %> </li>
+            <% } %>
+
+        </ul>
+
+    <% } %>
+    <%- include('includes/footer.ejs') %>
+</body>
+</html>
