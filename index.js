@@ -18,7 +18,7 @@ app.set("view engine" , "ejs") ;//express by default require ejs
 app.use(express.static(path.join(__dirname, 'public'))); // for file like video img(now in public named folder) and the source in html will be /filename
 
 
-app.set('public' , path.join(__dirname , 'public'));
+//app.set('public' , path.join(__dirname , 'public'));
 app.set("views" , path.join(__dirname , "views")); // to use nodemon outside of this folder
 
 
