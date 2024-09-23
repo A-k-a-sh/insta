@@ -89,7 +89,7 @@
     <header>
         <% names = ['cats' , 'dogs' , 'birds' , 'rabbits'] %>
         <% for(n of names) {%>
-            <a href="http://<%=localIpAddress%>:8080/instragram/<%=n%>">
+            <a href="/instragram/<%=n%>">
                 <%= n.toUpperCase() %>
             </a> 
         <% } %>
